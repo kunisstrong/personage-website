@@ -91,12 +91,10 @@ window.hiddenProperty = "hidden" in document ? "hidden" : "webkitHidden" in docu
     RIGHT: "RIGHT",
     UNDIRECTED: "UNDIRECTED"
 }, window.isPhone = /Mobile|Android|iOS|iPhone|iPad|iPod|Windows Phone|KFAPWI/i.test(navigator.userAgent), window.visibilityChangeEvent = hiddenProperty.replace(/hidden/i, "visibilitychange"), window.addEventListener(visibilityChangeEvent, loadIntro), window.addEventListener("DOMContentLoaded", loadIntro);
-var enterEl = $(".enter");
+var enterEl = $(".enter")
 enterEl.addEventListener("click", loadAll), enterEl.addEventListener("touchenter", loadAll), document.body.addEventListener("mousewheel", loadAll, {passive: !0}), $(".arrow").addEventListener("mouseenter", loadAll), isPhone && (document.addEventListener("touchstart", function (e) {
-        window.startx = e.touches[0].pageX, window.starty = e.touches[0].pageY
-        // console.log(1)
-    },
-    {passive: !0}), document.addEventListener("touchend", function (e) {
+    window.startx = e.touches[0].pageX, window.starty = e.touches[0].pageY
+}, {passive: !0}), document.addEventListener("touchend", function (e) {
     var t, n;
     t = e.changedTouches[0].pageX, n = e.changedTouches[0].pageY, getMoveDirection(startx, starty, t, n) === DIRECTIONS.UP && loadAll()
 }, {passive: !0}));

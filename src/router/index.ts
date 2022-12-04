@@ -2,6 +2,10 @@ import {createRouter, RouteRecordRaw, createWebHashHistory} from "vue-router"
 
 const routes: Array<RouteRecordRaw> = [
     {
+        path: '/',
+        component: () => import('@/layout/index.vue')
+    },
+    {
         path: '/blog',
         component: () => import('@/view/Blog/index.vue')
     }

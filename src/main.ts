@@ -7,4 +7,4 @@ const app = createApp(App)
 app.use(router)
 
 // 挂载容器
-app.mount('#app')
+app.mount('#card')

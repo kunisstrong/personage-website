@@ -1,5 +1,67 @@
 "use strict";
 
+function switchPage() {
+    if (!switchPage.switched) {
+        var e = {intro: $(".content-intro"), path: $(".shape-wrap path"), shape: $("svg.shape")};
+        e.shape.style.transformOrigin = "50% 0%", anime({
+            targets: e.intro,
+            duration: 1100,
+            easing: "easeInOutSine",
+            translateY: "-200vh"
+        }), anime({
+            targets: e.shape,
+            scaleY: [{value: [.8, 1.8], duration: 550, easing: "easeInQuad"}, {
+                value: 1,
+                duration: 550,
+                easing: "easeOutQuad"
+            }]
+        }), anime({
+            targets: e.path,
+            duration: 1100,
+            easing: "easeOutQuad",
+            d: e.path.getAttribute("pathdata:id"),
+            complete: function (e) {
+                canvas && (cancelAnimationFrame(animationID), canvas.parentElement.removeChild(canvas), canvas = null)
+            }
+        }), switchPage.switched = !0
+    }
+}
+
+window.config = {
+    SIM_RESOLUTION: 128,
+    DYE_RESOLUTION: 1024,
+    CAPTURE_RESOLUTION: 512,
+    DENSITY_DISSIPATION: 1,
+    VELOCITY_DISSIPATION: 0.2,
+    PRESSURE: 0.8,
+    PRESSURE_ITERATIONS: 20,
+    CURL: 30,
+    SPLAT_RADIUS: 0.25,
+    SPLAT_FORCE: 6000,
+    SHADING: true,
+    COLORFUL: true,
+    COLOR_UPDATE_SPEED: 10,
+    PAUSED: false,
+    BACK_COLOR: {r: 30, g: 31, b: 33},
+    TRANSPARENT: false,
+    BLOOM: true,
+    BLOOM_ITERATIONS: 8,
+    BLOOM_RESOLUTION: 256,
+    BLOOM_INTENSITY: 0.4,
+    BLOOM_THRESHOLD: 0.8,
+    BLOOM_SOFT_KNEE: 0.7,
+    SUNRAYS: true,
+    SUNRAYS_RESOLUTION: 196,
+    SUNRAYS_WEIGHT: 1.0,
+}
+window.hiddenProperty = "hidden" in document ? "hidden" : "webkitHidden" in document ? "webkitHidden" : "mozHidden" in document ? "mozHidden" : null, window.DIRECTIONS = {
+    UP: "UP",
+    DOWN: "DOWN",
+    LEFT: "LEFT",
+    RIGHT: "RIGHT",
+    UNDIRECTED: "UNDIRECTED"
+}, window.isPhone = /Mobile|Android|iOS|iPhone|iPad|iPod|Windows Phone|KFAPWI/i.test(navigator.userAgent), window.visibilityChangeEvent = hiddenProperty.replace(/hidden/i, "visibilitychange")
+
 function _classCallCheck(e, r) {
     if (!(e instanceof r)) throw new TypeError("Cannot call a class as a function")
 }
@@ -145,7 +207,7 @@ var dye, velocity, divergence, curl, pressure, bloom, sunrays, sunraysTemp,
     gradientSubtractShader = compileShader(gl.FRAGMENT_SHADER, "\n    precision mediump float;\n    precision mediump sampler2D;\n\n    varying highp vec2 vUv;\n    varying highp vec2 vL;\n    varying highp vec2 vR;\n    varying highp vec2 vT;\n    varying highp vec2 vB;\n    uniform sampler2D uPressure;\n    uniform sampler2D uVelocity;\n\n    void main () {\n        float L = texture2D(uPressure, vL).x;\n        float R = texture2D(uPressure, vR).x;\n        float T = texture2D(uPressure, vT).x;\n        float B = texture2D(uPressure, vB).x;\n        vec2 velocity = texture2D(uVelocity, vUv).xy;\n        velocity.xy -= vec2(R - L, T - B);\n        gl_FragColor = vec4(velocity, 0.0, 1.0);\n    }\n"),
     blit = (gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer()), gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, -1, 1, 1, 1, 1, -1]), gl.STATIC_DRAW), gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, gl.createBuffer()), gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array([0, 1, 2, 0, 2, 3]), gl.STATIC_DRAW), gl.vertexAttribPointer(0, 2, gl.FLOAT, !1, 0, 0), gl.enableVertexAttribArray(0), function (e) {
         gl.bindFramebuffer(gl.FRAMEBUFFER, e), gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 0)
-    }), bloomFramebuffers = [], ditheringTexture = createTextureAsync("src/assets/images/background.png"),
+    }), bloomFramebuffers = [], ditheringTexture = createTextureAsync("./src/assets/images/background.png"),
     blurProgram = new Program(blurVertexShader, blurShader), copyProgram = new Program(baseVertexShader, copyShader),
     clearProgram = new Program(baseVertexShader, clearShader),
     colorProgram = new Program(baseVertexShader, colorShader),

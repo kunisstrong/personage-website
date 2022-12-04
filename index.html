@@ -17,72 +17,7 @@
     <meta name="description" content="Author:SimonMa,Category:Personal Blog">
     <link rel="icon" href="src/assets/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="src/assets/favicon.ico" type="image/x-icon">
-    <!--[if lt IE 9]>
-    <style>
-    .alert {
-        padding: 15px;
-        margin-bottom: 20px;
-        border: 1px solid transparent;
-        border-radius: 4px
-    }
 
-    .alert-danger {
-        background-color: #f2dede;
-        border-color: #ebccd1;
-        color: #a94442;
-        border-bottom: 1px solid #ebccd1
-    }
-
-    .alert-link {
-        color: #843534;
-        font-weight: bold
-    }
-
-    .topframe {
-        margin: 0;
-        padding-left: 15px;
-        padding-right: 15px;
-        text-align: center;
-        border-radius: 0;
-        position: fixed;
-        left: 0;
-        right: 0;
-        top: 0;
-        z-index: 1000
-    }
-    </style>
-    <style>
-    .github-corner:hover .octo-arm {
-        animation: octocat-wave 560ms ease-in-out
-    }
-
-    @keyframes octocat-wave {
-        0%, 100% {
-            transform: rotate(0)
-        }
-        20%, 60% {
-            transform: rotate(-25deg)
-        }
-        40%, 80% {
-            transform: rotate(10deg)
-        }
-    }
-
-    @media (max-width: 500px) {
-        .github-corner:hover .octo-arm {
-            animation: none
-        }
-
-        .github-corner .octo-arm {
-            animation: octocat-wave 560ms ease-in-out
-        }
-    }
-    </style>
-    <div class="alert alert-danger topframe">你的浏览器实在<strong>太太太太太太旧了</strong>，放学别走，升级完浏览器再说<a
-            class="alert-link" target="_blank" href="http://browsehappy.com">立即升级</a></div>
-    <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
-    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body>
 
@@ -117,79 +52,11 @@
     </div>
     <div class="content content-main">
         <div id="card">
-            <div class="card-inner fade">
-                <header>
-                    <img src="src/assets/images/avatar.jpg" style="width: 100px; height: 100px" alt="avatar">
-                    <h1 data-translate="name">Simon Ma</h1>
-                    <h2 id="signature" data-translate="signature">Code &amp; Input &amp; Output</h2>
-                </header>
-                <ul>
-                    <li>
-                        <a href="./nav.html" aria-label="Blog" target="_blank">
-                            <i class="icon icon-bokeyuan"></i>
-                            <span data-translate="Blog">Blog</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./about.html" aria-label="About" target="_blank">
-                            <i class="icon icon-xiaolian"></i>
-                            <span data-translate="About">About</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="mailto:simon@tomotoes.com" aria-label="Email" target="_blank">
-                            <i class="icon icon-email"></i>
-                            <span data-translate="Email">Email</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/tomotoes" aria-label="Github" target="_blank">
-                            <i class="icon icon-github"></i>
-                            <span data-translate="Github">Github</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
         </div>
     </div>
+    <script type="module" src="/src/main.ts"></script>
     <script src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
-    <script>
-        window.$ = selector => document.querySelector(selector)
-        const getOriginalContent = selector => $(selector).getAttribute("original-content")
-        window.subtitle = getOriginalContent(".content-subtitle")
-        window.signature = getOriginalContent("#signature")
-        window.config = {
-            SIM_RESOLUTION: 128,
-            DYE_RESOLUTION: 1024,
-            CAPTURE_RESOLUTION: 512,
-            DENSITY_DISSIPATION: 1,
-            VELOCITY_DISSIPATION: 0.2,
-            PRESSURE: 0.8,
-            PRESSURE_ITERATIONS: 20,
-            CURL: 30,
-            SPLAT_RADIUS: 0.25,
-            SPLAT_FORCE: 6000,
-            SHADING: true,
-            COLORFUL: true,
-            COLOR_UPDATE_SPEED: 10,
-            PAUSED: false,
-            BACK_COLOR: {r: 30, g: 31, b: 33},
-            TRANSPARENT: false,
-            BLOOM: true,
-            BLOOM_ITERATIONS: 8,
-            BLOOM_RESOLUTION: 256,
-            BLOOM_INTENSITY: 0.4,
-            BLOOM_THRESHOLD: 0.8,
-            BLOOM_SOFT_KNEE: 0.7,
-            SUNRAYS: true,
-            SUNRAYS_RESOLUTION: 196,
-            SUNRAYS_WEIGHT: 1.0,
-        }
-    </script>
-    <script src="src/js/home.js"></script>
     <script src="src/js/background.js"></script>
 </main>
-
-
 </body>
 </html>
