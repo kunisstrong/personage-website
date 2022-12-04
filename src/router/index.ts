@@ -7,7 +7,8 @@ const routes: Array<RouteRecordRaw> = [
     },
     {
         path: '/blog',
-        component: () => import('@/view/Blog/index.vue')
+        name: 'xxx平台',
+        component: () => import('@/view/Blog/index.vue'),
     }
 ]
 

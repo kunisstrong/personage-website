@@ -2,35 +2,35 @@
 const $ = selector => document.querySelector(selector)
 
 
-// function _toConsumableArray(e) {
-//     return _arrayWithoutHoles(e) || _iterableToArray(e) || _unsupportedIterableToArray(e) || _nonIterableSpread()
-// }
-//
-// function _nonIterableSpread() {
-//     throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
-// }
-//
-// function _unsupportedIterableToArray(e, t) {
-//     if (e) {
-//         if ("string" == typeof e) return _arrayLikeToArray(e, t);
-//         var n = Object.prototype.toString.call(e).slice(8, -1);
-//         return "Object" === n && e.constructor && (n = e.constructor.name), "Map" === n || "Set" === n ? Array.from(e) : "Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? _arrayLikeToArray(e, t) : void 0
-//     }
-// }
-//
-// function _iterableToArray(e) {
-//     if ("undefined" != typeof Symbol && Symbol.iterator in Object(e)) return Array.from(e)
-// }
-//
-// function _arrayWithoutHoles(e) {
-//     if (Array.isArray(e)) return _arrayLikeToArray(e)
-// }
-//
-// function _arrayLikeToArray(e, t) {
-//     (null == t || t > e.length) && (t = e.length);
-//     for (var n = 0, a = new Array(t); n < t; n++) a[n] = e[n];
-//     return a
-// }
+function _toConsumableArray(e) {
+    return _arrayWithoutHoles(e) || _iterableToArray(e) || _unsupportedIterableToArray(e) || _nonIterableSpread()
+}
+
+function _nonIterableSpread() {
+    throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
+}
+
+function _unsupportedIterableToArray(e, t) {
+    if (e) {
+        if ("string" == typeof e) return _arrayLikeToArray(e, t);
+        var n = Object.prototype.toString.call(e).slice(8, -1);
+        return "Object" === n && e.constructor && (n = e.constructor.name), "Map" === n || "Set" === n ? Array.from(e) : "Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? _arrayLikeToArray(e, t) : void 0
+    }
+}
+
+function _iterableToArray(e) {
+    if ("undefined" != typeof Symbol && Symbol.iterator in Object(e)) return Array.from(e)
+}
+
+function _arrayWithoutHoles(e) {
+    if (Array.isArray(e)) return _arrayLikeToArray(e)
+}
+
+function _arrayLikeToArray(e, t) {
+    (null == t || t > e.length) && (t = e.length);
+    for (var n = 0, a = new Array(t); n < t; n++) a[n] = e[n];
+    return a
+}
 
 function getMoveDirection(e, t, n, a) {
     if (isPhone) {
@@ -44,7 +44,7 @@ function getMoveDirection(e, t, n, a) {
 function loadIntro() {
     document[hiddenProperty] || loadIntro.loaded || (setTimeout(function () {
         $(".fade").classList.add("in"), setTimeout(function () {
-            // $(".content-subtitle").innerHTML = "<span>".concat(_toConsumableArray(subtitle).join("</span><span>"), "</span>")
+            $(".content-subtitle").innerHTML = "<span>".concat(_toConsumableArray('Front back left right end engineer').join("</span><span>"), "</span>")
         }, 270)
     }, 0), loadIntro.loaded = !0)
 }
@@ -102,4 +102,4 @@ enterEl.addEventListener("click", loadAll), enterEl.addEventListener("touchenter
 }, {passive: !0}), document.addEventListener("touchend", function (e) {
     var t, n;
     t = e.changedTouches[0].pageX, n = e.changedTouches[0].pageY, getMoveDirection(startx, starty, t, n) === DIRECTIONS.UP && loadAll()
-}, {passive: !0}));
+}, {passive: !0}))

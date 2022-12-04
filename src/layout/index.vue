@@ -36,10 +36,15 @@
 
 <script setup lang="ts">
 import '@/js/home.js'
+// import '@/js/background.js'
 import {useRouter} from "vue-router";
 
 const router = useRouter()
 const toBlog = () => {
-  router.push('/blog')
+  // router.push('/blog')
+  const {href} = router.resolve({
+    path: '/blog',
+  });
+  window.open(href, '_blank');
 }
 </script>
