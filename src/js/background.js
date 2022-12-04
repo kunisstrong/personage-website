@@ -1,4 +1,5 @@
 "use strict";
+const $ = selector => document.querySelector(selector)
 
 function switchPage() {
     if (!switchPage.switched) {

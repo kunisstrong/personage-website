@@ -1,34 +1,36 @@
 "use strict";
+const $ = selector => document.querySelector(selector)
 
-function _toConsumableArray(e) {
-    return _arrayWithoutHoles(e) || _iterableToArray(e) || _unsupportedIterableToArray(e) || _nonIterableSpread()
-}
 
-function _nonIterableSpread() {
-    throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
-}
-
-function _unsupportedIterableToArray(e, t) {
-    if (e) {
-        if ("string" == typeof e) return _arrayLikeToArray(e, t);
-        var n = Object.prototype.toString.call(e).slice(8, -1);
-        return "Object" === n && e.constructor && (n = e.constructor.name), "Map" === n || "Set" === n ? Array.from(e) : "Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? _arrayLikeToArray(e, t) : void 0
-    }
-}
-
-function _iterableToArray(e) {
-    if ("undefined" != typeof Symbol && Symbol.iterator in Object(e)) return Array.from(e)
-}
-
-function _arrayWithoutHoles(e) {
-    if (Array.isArray(e)) return _arrayLikeToArray(e)
-}
-
-function _arrayLikeToArray(e, t) {
-    (null == t || t > e.length) && (t = e.length);
-    for (var n = 0, a = new Array(t); n < t; n++) a[n] = e[n];
-    return a
-}
+// function _toConsumableArray(e) {
+//     return _arrayWithoutHoles(e) || _iterableToArray(e) || _unsupportedIterableToArray(e) || _nonIterableSpread()
+// }
+//
+// function _nonIterableSpread() {
+//     throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
+// }
+//
+// function _unsupportedIterableToArray(e, t) {
+//     if (e) {
+//         if ("string" == typeof e) return _arrayLikeToArray(e, t);
+//         var n = Object.prototype.toString.call(e).slice(8, -1);
+//         return "Object" === n && e.constructor && (n = e.constructor.name), "Map" === n || "Set" === n ? Array.from(e) : "Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? _arrayLikeToArray(e, t) : void 0
+//     }
+// }
+//
+// function _iterableToArray(e) {
+//     if ("undefined" != typeof Symbol && Symbol.iterator in Object(e)) return Array.from(e)
+// }
+//
+// function _arrayWithoutHoles(e) {
+//     if (Array.isArray(e)) return _arrayLikeToArray(e)
+// }
+//
+// function _arrayLikeToArray(e, t) {
+//     (null == t || t > e.length) && (t = e.length);
+//     for (var n = 0, a = new Array(t); n < t; n++) a[n] = e[n];
+//     return a
+// }
 
 function getMoveDirection(e, t, n, a) {
     if (isPhone) {
@@ -41,11 +43,13 @@ function getMoveDirection(e, t, n, a) {
 
 function loadIntro() {
     document[hiddenProperty] || loadIntro.loaded || (setTimeout(function () {
-        $(".wrap").classList.add("in"), setTimeout(function () {
-            $(".content-subtitle").innerHTML = "<span>".concat(_toConsumableArray(subtitle).join("</span><span>"), "</span>")
+        $(".fade").classList.add("in"), setTimeout(function () {
+            // $(".content-subtitle").innerHTML = "<span>".concat(_toConsumableArray(subtitle).join("</span><span>"), "</span>")
         }, 270)
     }, 0), loadIntro.loaded = !0)
 }
+
+loadIntro()
 
 function switchPage() {
     if (!switchPage.switched) {
@@ -84,6 +88,7 @@ function loadAll() {
     loadAll.loaded || (switchPage(), loadMain(), loadAll.loaded = !0)
 }
 
+
 window.hiddenProperty = "hidden" in document ? "hidden" : "webkitHidden" in document ? "webkitHidden" : "mozHidden" in document ? "mozHidden" : null, window.DIRECTIONS = {
     UP: "UP",
     DOWN: "DOWN",
@@ -91,7 +96,7 @@ window.hiddenProperty = "hidden" in document ? "hidden" : "webkitHidden" in docu
     RIGHT: "RIGHT",
     UNDIRECTED: "UNDIRECTED"
 }, window.isPhone = /Mobile|Android|iOS|iPhone|iPad|iPod|Windows Phone|KFAPWI/i.test(navigator.userAgent), window.visibilityChangeEvent = hiddenProperty.replace(/hidden/i, "visibilitychange"), window.addEventListener(visibilityChangeEvent, loadIntro), window.addEventListener("DOMContentLoaded", loadIntro);
-var enterEl = $(".enter")
+var enterEl = $(".enter");
 enterEl.addEventListener("click", loadAll), enterEl.addEventListener("touchenter", loadAll), document.body.addEventListener("mousewheel", loadAll, {passive: !0}), $(".arrow").addEventListener("mouseenter", loadAll), isPhone && (document.addEventListener("touchstart", function (e) {
     window.startx = e.touches[0].pageX, window.starty = e.touches[0].pageY
 }, {passive: !0}), document.addEventListener("touchend", function (e) {
