@@ -9,6 +9,11 @@ const routes: Array<RouteRecordRaw> = [
         path: '/blog',
         name: 'xxx平台',
         component: () => import('@/view/Blog/index.vue'),
+    },
+    {
+        path: '/about',
+        name: '个人介绍',
+        component: () => import('@/view/About/index.vue')
     }
 ]
 

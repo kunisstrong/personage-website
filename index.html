@@ -18,7 +18,228 @@
     <link rel="icon" href="src/assets/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="src/assets/favicon.ico" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+    <style>
+        main {
+            overflow: hidden
+        }
 
+        .content, main {
+            height: 100vh;
+            width: 100%;
+            position: relative
+        }
+
+        .content {
+            background: radial-gradient(#313131, #0a0a0a)
+        }
+
+        .content-intro {
+            z-index: 100;
+            height: 200vh
+        }
+
+        .content-main {
+            position: fixed;
+            top: 0;
+            left: 0
+        }
+
+        #background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1
+        }
+
+        .content-inner {
+            position: relative
+        }
+
+        .content-inner, .wrap {
+            width: 100%;
+            height: 100vh
+        }
+
+        .wrap {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -ms-flex-align: center;
+            align-items: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            text-align: center
+        }
+
+        .content-intro .content-inner {
+            background: var(--color-content);
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none
+        }
+
+
+        .content-title {
+            font-family: Comic Sans MS, Helvetica Neue, Microsoft Yahei, -apple-system, sans-serif;
+            font-size: 4.7rem;
+            font-weight: 200;
+            color: var(--color-title);
+            line-height: 1;
+            margin-top: .8em;
+            margin-bottom: .3em;
+            animation: whiteShadow 1.5s ease-in-out infinite alternate;
+            text-shadow: #452d2d 0 0 1px, #fffffb 0 0 1px, #fffffb 0 0 2px
+        }
+
+        @media screen and (max-width: 50em) {
+            .content-title {
+                font-size: 2rem
+            }
+        }
+
+        @keyframes whiteShadow {
+            0% {
+                text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 5px #333, 0 0 8px #333, 0 0 9px #333, 0 0 10px #333, 0 0 15px #333
+            }
+            to {
+                text-shadow: 0 0 .5px #fff, 0 0 1px #fff, 0 0 1.5px #fff, 0 0 2px #333, 0 0 4px #333, 0 0 5px #333, 0 0 6px #333, 0 0 8px #333
+            }
+        }
+
+        .content-subtitle {
+            animation: letter-glow .7s 0s ease both
+        }
+
+        @keyframes letter-glow {
+            0% {
+                opacity: 0;
+                text-shadow: 0 0 1px hsla(0, 0%, 100%, .1)
+            }
+            66% {
+                opacity: 1;
+                text-shadow: 0 0 20px hsla(0, 0%, 100%, .9)
+            }
+            77% {
+                opacity: 1
+            }
+            to {
+                opacity: .7;
+                text-shadow: 0 0 20px hsla(0, 0%, 100%, .2)
+            }
+        }
+
+        .content-subtitle {
+            color: #fff;
+            font-family: Comic Sans MS, Helvetica Neue, Microsoft Yahei, -apple-system, sans-serif;
+            font-size: 1.2rem;
+            font-weight: 200;
+            margin-bottom: 2em;
+            text-shadow: 0 0 4px #fff
+        }
+
+        @media screen and (max-width: 1024px) {
+            .content-subtitle {
+                font-size: 1rem
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .content-subtitle {
+                font-size: .8rem
+            }
+        }
+
+        @media screen and (max-width: 560px) {
+            .content-subtitle {
+                font-size: .7rem
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .content-subtitle {
+                font-size: .6rem
+            }
+        }
+
+        .enter {
+            color: var(--color-enter);
+            margin-top: 100px;
+            font-size: .8rem;
+            letter-spacing: 3px;
+            white-space: pre;
+            pointer-events: auto;
+            transition: all .4s;
+            z-index: 999
+        }
+
+        .enter:focus, .enter:hover {
+            color: var(--color-link-hover)
+        }
+
+
+        .arrow {
+            position: absolute;
+            left: 49.5%;
+            top: 95%;
+            transform-origin: 50% 50%;
+            transform: translate3d(-50%, 0, 0)
+        }
+
+        .arrow-1 {
+            animation: arrow-movement 2s ease-in-out infinite
+        }
+
+        .arrow-2 {
+            animation: arrow-movement 2s 1s ease-in-out infinite
+        }
+
+        .arrow:after, .arrow:before {
+            background: #fff;
+            content: "";
+            display: block;
+            height: 3px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 13px;
+            box-shadow: 1px 1px 20px 0 #fff
+        }
+
+        .arrow:before {
+            transform: rotate(45deg) translateX(-10%);
+            transform-origin: top left
+        }
+
+        .arrow:after {
+            transform: rotate(-45deg) translateX(10%);
+            transform-origin: top right
+        }
+
+        @keyframes arrow-movement {
+            0% {
+                opacity: 0;
+                top: 92%
+            }
+            70% {
+                opacity: 1
+            }
+            to {
+                opacity: 0
+            }
+        }
+
+        /*.shape {*/
+        /*    height: 100vh;*/
+        /*    width: 100%;*/
+        /*    display: block;*/
+        /*    fill: var(--color-content)*/
+        /*}*/
+
+    </style>
 </head>
 <body>
 
@@ -26,37 +247,36 @@
     <div class="content content-intro">
         <div class="content-inner">
             <canvas id="background"></canvas>
-            <div class="wrap fade">
+            <div class="wrap fade" style="box-sizing: border-box; overflow: hidden">
                 <h2 class="content-title">Simon Ma</h2>
-                <h3 class="content-subtitle" original-content="Front back left right end engineer">&nbsp;
+                <h3 class="content-subtitle">
+                    Front back left right end engineer
                 </h3>
-                <a class="enter">enter</a>
+                <a href="./nav.html" class="enter">enter</a>
+                <!--                <img style="margin-top: 100px" src="src/assets/images/shuxian_dong.webp" alt="">-->
                 <div class="arrow arrow-1"></div>
                 <div class="arrow arrow-2"></div>
             </div>
         </div>
         <div class="shape-wrap">
-            <svg class="shape"
-                 width="100%"
-                 height="100vh"
-                 preserveAspectRatio="none"
-                 viewBox="0 0 1440 800"
-                 xmlns:pathdata="http://www.codrops.com/">
-                <path
-                        d="M-44-50C-52.71 28.52 15.86 8.186 184 14.69 383.3 22.39 462.5 12.58 638 14 835.5 15.6 987 6.4 1194 13.86 1661 30.68 1652-36.74 1582-140.1 1512-243.5 15.88-589.5-44-50Z"
-                        pathdata:id="M -44,-50 C -137.1,117.4 67.86,445.5 236,452 435.3,459.7 500.5,242.6 676,244 873.5,245.6 957,522.4 1154,594 1593,753.7 1793,226.3 1582,-126 1371,-478.3 219.8,-524.2 -44,-50 Z"
-                >
-                </path>
-            </svg>
-        </div>
-        <script src="src/js/background.js"></script>
-    </div>
-    <div class="content content-main">
-        <div id="card">
+            <div class="shape"></div>
+            <!--            <svg class="shape"-->
+            <!--                 width="100%"-->
+            <!--                 height="100vh"-->
+            <!--                 preserveAspectRatio="none"-->
+            <!--                 viewBox="0 0 1440 800"-->
+            <!--                 xmlns:pathdata="http://www.codrops.com/">-->
+            <!--                <path-->
+            <!--                        d="M-44-50C-52.71 28.52 15.86 8.186 184 14.69 383.3 22.39 462.5 12.58 638 14 835.5 15.6 987 6.4 1194 13.86 1661 30.68 1652-36.74 1582-140.1 1512-243.5 15.88-589.5-44-50Z"-->
+            <!--                        pathdata:id="M -44,-50 C -137.1,117.4 67.86,445.5 236,452 435.3,459.7 500.5,242.6 676,244 873.5,245.6 957,522.4 1154,594 1593,753.7 1793,226.3 1582,-126 1371,-478.3 219.8,-524.2 -44,-50 Z"-->
+            <!--                >-->
+            <!--                </path>-->
+            <!--            </svg>-->
         </div>
     </div>
 
-    <script type="module" src="/src/main.ts"></script>
+    <script src="src/js/background.js"></script>
+    <!--    <script src="src/js/home.js"></script>-->
 
 </main>
 </body>

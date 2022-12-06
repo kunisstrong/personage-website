@@ -1,6 +1,4 @@
 "use strict";
-const $ = selector => document.querySelector(selector)
-
 
 function _toConsumableArray(e) {
     return _arrayWithoutHoles(e) || _iterableToArray(e) || _unsupportedIterableToArray(e) || _nonIterableSpread()
@@ -43,13 +41,11 @@ function getMoveDirection(e, t, n, a) {
 
 function loadIntro() {
     document[hiddenProperty] || loadIntro.loaded || (setTimeout(function () {
-        $(".fade").classList.add("in"), setTimeout(function () {
+        $(".wrap").classList.add("in"), setTimeout(function () {
             $(".content-subtitle").innerHTML = "<span>".concat(_toConsumableArray('Front back left right end engineer').join("</span><span>"), "</span>")
         }, 270)
     }, 0), loadIntro.loaded = !0)
 }
-
-loadIntro()
 
 function switchPage() {
     if (!switchPage.switched) {
@@ -88,7 +84,6 @@ function loadAll() {
     loadAll.loaded || (switchPage(), loadMain(), loadAll.loaded = !0)
 }
 
-
 window.hiddenProperty = "hidden" in document ? "hidden" : "webkitHidden" in document ? "webkitHidden" : "mozHidden" in document ? "mozHidden" : null, window.DIRECTIONS = {
     UP: "UP",
     DOWN: "DOWN",
@@ -102,4 +97,4 @@ enterEl.addEventListener("click", loadAll), enterEl.addEventListener("touchenter
 }, {passive: !0}), document.addEventListener("touchend", function (e) {
     var t, n;
     t = e.changedTouches[0].pageX, n = e.changedTouches[0].pageY, getMoveDirection(startx, starty, t, n) === DIRECTIONS.UP && loadAll()
-}, {passive: !0}))
+}, {passive: !0}));
