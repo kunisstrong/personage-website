@@ -96,88 +96,15 @@
           </div>
           <div class="row"></div>
           <div class="mySkill_main">
-            <div class="item">
+            <div class="item" v-for="item in skill">
               <div class="item_icon">
-                <img src="@/assets/images/htmlcss.png" alt=""/>
+                <img :src="item.imgPath" alt=""/>
               </div>
-              <div class="item_title">HTML&CSS</div>
+              <div class="item_title">{{ item.title }}</div>
               <div class="item_detail">
-                <p>Hypertext markup language</p>
+                <p>{{ item.shortDescription }}</p>
                 <p>
-                  超文本标记语言,通过预定义好的标签实现网页开发,是一种标记语言.
-                </p>
-                <p>包括一系列标签,通过标签能将文档格式统一</p>
-              </div>
-            </div>
-            <div class="item">
-              <div class="item_icon">
-                <img src="@/assets/images/js.png" alt=""/>
-              </div>
-              <div class="item_title">JavaScript</div>
-              <div class="item_detail">
-                <p>常作为开发Web页面的脚本语言</p>
-                <p>
-                  (简称“JS”)
-                  是一种具有函数优先的轻量级，解释型或即时编译型的高级编程语言。
-                </p>
-                <p>现JS可以在各个领域发挥着重要的作用</p>
-              </div>
-            </div>
-            <div class="item">
-              <div class="item_icon">
-                <img src="@/assets/images/less.png" alt=""/>
-              </div>
-              <div class="item_title">Less</div>
-              <div class="item_detail">
-                <p>css 预编译器</p>
-                <p>
-                  可以扩展
-                  css语言,添加功能,比如变量、混合、函数和许多其他的技术.
-                </p>
-                <p>让 css 更具维护性、主体性和扩展性.</p>
-              </div>
-            </div>
-            <div class="item">
-              <div class="item_icon">
-                <img src="@/assets/images/Vue.png" alt=""/>
-              </div>
-              <div class="item_title">Vue</div>
-              <div class="item_detail">
-                <p>渐进式 JavaScript 框架</p>
-                <p>
-                  采用简洁的模板语法来声明式的将数据渲染进DOM
-                  的系统
-                </p>
-                <p>声明式地将DOM 绑定至底层Vue实例的数据</p>
-              </div>
-            </div>
-            <div class="item">
-              <div class="item_icon">
-                <img src="@/assets/images/node.svg" alt=""/>
-              </div>
-              <div class="item_title">Node.js</div>
-              <div class="item_detail">
-                <p>JavaScirpt 运行环境</p>
-                <p>
-                  是一个开源和跨平台的 JavaScript 运行时环境。
-                  几乎是任何类型项目的流行工具
-                </p>
-                <p>让JavaScript可以在各大领域地方大放异彩</p>
-              </div>
-            </div>
-            <div class="item">
-              <div class="item_icon">
-                <img src="@/assets/images/typescript.png" alt=""/>
-              </div>
-              <div class="item_title">TypeScript</div>
-              <div class="item_detail">
-                <p>JavaScript类型的超集</p>
-                <p>
-                  为 JavaScript 带来了强大的类型系统和对
-                  ES2015的支持.
-                </p>
-                <p>
-                  对大项目可读性和可维护性起到了非常大的作用.
+                  {{ item.detailDescription }}
                 </p>
               </div>
             </div>
@@ -357,53 +284,59 @@
 </template>
 
 <script setup lang="ts">
-// 我的技能数据
-type Skill = {
+
+// 定义我的技能模块数据类型
+import {onMounted} from "vue";
+
+type SkillType = {
   imgPath: string
   title: string
   shortDescription: string
   detailDescription: string
 }
 
-const Skill: Skill[] = [
+const skill: SkillType[] = [
   {
-    imgPath: '@/assets/images/htmlcss.png',
+    imgPath: '/src/assets/images/htmlcss.png',
     title: 'HTML&CSS',
     shortDescription: 'Hypertext markup language',
     detailDescription: '超文本标记语言,通过预定义好的标签实现网页开发,是一种标记语言.'
   },
   {
-    imgPath: '@/assets/images/htmlcss.png',
-    title: 'HTML&CSS',
-    shortDescription: 'Hypertext markup language',
-    detailDescription: '超文本标记语言,通过预定义好的标签实现网页开发,是一种标记语言.'
+    imgPath: '/src/assets/images/js.png',
+    title: 'JavaScript',
+    shortDescription: '常作为开发Web页面的编程语言',
+    detailDescription: '是一种具有函数优先的轻量级，解释型或即时编译型的高级编程语言.'
   },
   {
-    imgPath: '@/assets/images/htmlcss.png',
-    title: 'HTML&CSS',
-    shortDescription: 'Hypertext markup language',
-    detailDescription: '超文本标记语言,通过预定义好的标签实现网页开发,是一种标记语言.'
+    imgPath: '/src/assets/images/less.png',
+    title: 'Less',
+    shortDescription: 'css 预编译器',
+    detailDescription: '可以扩展 css语言,添加功能,比如变量、混合、函数和许多其他的技术.'
   },
   {
-    imgPath: '@/assets/images/htmlcss.png',
-    title: 'HTML&CSS',
-    shortDescription: 'Hypertext markup language',
-    detailDescription: '超文本标记语言,通过预定义好的标签实现网页开发,是一种标记语言.'
+    imgPath: '/src/assets/images/Vue.png',
+    title: 'Vue',
+    shortDescription: '渐进式 JavaScript 框架',
+    detailDescription: '声明式地将DOM 绑定至底层Vue实例的数据.'
   },
   {
-    imgPath: '@/assets/images/htmlcss.png',
-    title: 'HTML&CSS',
-    shortDescription: 'Hypertext markup language',
-    detailDescription: '超文本标记语言,通过预定义好的标签实现网页开发,是一种标记语言.'
+    imgPath: '/src/assets/images/node.svg',
+    title: 'Node.js',
+    shortDescription: 'JavaScirpt 运行环境',
+    detailDescription: ' 是一个开源和跨平台的 JavaScript 运行时环境,几乎是任何类型项目的流行工具.'
   },
   {
-    imgPath: '@/assets/images/htmlcss.png',
-    title: 'HTML&CSS',
-    shortDescription: 'Hypertext markup language',
-    detailDescription: '超文本标记语言,通过预定义好的标签实现网页开发,是一种标记语言.'
+    imgPath: '/src/assets/images/typescript.png',
+    title: 'TypeScript',
+    shortDescription: 'JavaScript类型的超集',
+    detailDescription: '为 JavaScript 带来了强大的类型系统和对ES2015的支持.'
   }
 
 ]
+onMounted(() => {
+
+})
 </script>
 
 <style lang="scss" scoped>
@@ -634,7 +567,6 @@ const Skill: Skill[] = [
         width: 100%;
         height: 100%;
         background: url(@/assets/images/wanju1.jpg) no-repeat fixed;
-        //background-attachment: ;
         background-size: 100% 100%;
 
         .show {
