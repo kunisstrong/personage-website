@@ -29,7 +29,7 @@
           </div>
         </div>
         <div class="header_main">
-          <p class="one" id="showNav">LIGHY CAM NE PHOTOGTAPHED</p>
+          <p class="one" ref="showNav" id="showNav">LIGHY CAM NE PHOTOGTAPHED</p>
           <p class="two"><span>I Believe </span>You Can Do It</p>
           <img class="dong" src="@/assets/images/shuxian_dong.webp" alt=""/>
         </div>
@@ -167,7 +167,7 @@
             我最终的梦想，兰博基尼<br/>It kept pushing me forward
           </div>
           <div class="row"></div>
-          <div class="myFavorite_main" id="show">
+          <div class="myFavorite_main" ref="car" id="show">
             <div class="myFavorite_box">
               <div class="main_item main_item_one">
                 <img src="@/assets/images/car7.jpg" alt=""/>
@@ -259,7 +259,7 @@
       </div>
     </main>
     <!-- 悬浮的导航栏 -->
-    <div class="nav_main">
+    <div class="nav_main" ref="nav_main">
       <div class="box pageWidth">
         <div class="left">
           <img src="@/assets/images/UX.png" alt=""/>
@@ -278,7 +278,7 @@
     </div>
     <!-- 悬浮返回顶部按钮 -->
     <div class="toTop">
-      <img id="toTOp_img" src="@/assets/images/top.png" alt=""/>
+      <img ref="toTop_img" id="toTOp_img" src="@/assets/images/top.png" alt=""/>
     </div>
   </div>
 </template>
@@ -286,7 +286,7 @@
 <script setup lang="ts">
 
 // 定义我的技能模块数据类型
-import {onMounted} from "vue";
+import {onMounted, ref} from "vue";
 
 type SkillType = {
   imgPath: string
@@ -334,7 +334,70 @@ const skill: SkillType[] = [
   }
 
 ]
+
+// sportCar淡出效果
+const carFadeOut = () => {
+  // 获取sportsCar相关元素
+  const myFavorite_item = document.querySelectorAll('.main_item')
+  const showCar = document.querySelector('#show') as Element
+
+  // sportsCar淡出效果
+  let itemTop = showCar.offsetTop
+  if (window.scrollY + window.innerHeight >= itemTop) {
+    myFavorite_item.forEach((item) => {
+      item.classList.add('fade')
+    })
+  }
+}
+
+// 悬浮导航栏与返回顶部按钮功能
+const toTop_img = ref(null)
+const showNav = ref(null)
+const navAndBack = () => {
+  // 获取悬浮导航栏相关元素
+  const nav_main = document.querySelector('.nav_main') as Element
+  // 获取悬浮返回头部按钮相关元素
+  const toTop = document.querySelector('.toTop') as Element
+  // 鼠标悬浮toTop按钮变化
+  toTop.addEventListener('mouseover', () => {
+    toTop.style.backgroundColor = '#ffffff'
+    toTop_img.value.src = '/src/assets/images/top2.png'
+  })
+  // 鼠标离开toTop按钮变化
+  toTop.addEventListener('mouseout', () => {
+    toTop.style.backgroundColor = '#6f64e7'
+    // toTOp_img.setAttribute('src', '@/assets/images/top.png')
+    toTop_img.value.src = '/src/assets/images/top.png'
+  })
+  toTop.addEventListener('click', () => {
+    document.documentElement.scrollTop = document.body.scrollTop = 0
+  })
+  // 悬浮导航栏与返回顶部按钮
+  let navTop = showNav.value.offsetTop
+  if (window.scrollY >= navTop) {
+    nav_main.style.top = 0
+    nav_main.style.opacity = 1
+    nav_main.style.visibility = 'visible'
+    toTop.style.opacity = 1
+  } else {
+    nav_main.style.top = 10 + 'px'
+    nav_main.style.opacity = 0
+    nav_main.style.visibility = 'hidden'
+    toTop.style.opacity = 0
+  }
+}
+
+// 整合document页面滑动功能
+const documentScroll = () => {
+  document.addEventListener('scroll', () => {
+    // 调用sportsCar淡出
+    carFadeOut()
+    // 调用悬浮导航栏与返回顶部按钮
+    navAndBack()
+  })
+}
 onMounted(() => {
+  documentScroll()
 
 })
 </script>
