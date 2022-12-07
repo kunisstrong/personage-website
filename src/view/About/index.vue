@@ -62,27 +62,20 @@
                 HELLO I Am <span>Kun Wang</span>
               </p>
               <p class="right_detail">
-                Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit. Integer tellus est,<br/>finibus
-                ut congue sed, faucibus ut dui. Sed congue nisl
-                dolor, id dapibus <br/>leo elementum posuere.
-                Ut aliquam metus quis laoreet elementum. In
-                <br/>hac habitasse platea dictumst. In hac
-                habitasse platea dictumst. <br/>Aliquam porta
-                faucibus arcu, et consequat velit vestibulum in.
+                本站使用
+                <span style="color: #6f64e7">vue3</span> +
+                <span style="color:#6f64e7">typescript</span>
+                构建<br>
+                我是一名本科学生，目前以前端为主，后端为辅<br>
+                本站用于记录学习笔记、技术、以及生活的分享<br>
+                可通过下面联系方式与我交流，微信同步
               </p>
               <div class="information">
                 <div class="attribute">
-                  <p>Name</p>
-                  <p>Age</p>
-                  <p>Address</p>
                   <p>Phone Number</p>
                   <p>Email</p>
                 </div>
                 <div class="value">
-                  <p>: 王琨</p>
-                  <p>: 23</p>
-                  <p>: 黑龙江省哈尔滨市</p>
                   <p>: 13115604410</p>
                   <p>: 910009136@qq.com</p>
                 </div>
@@ -96,28 +89,6 @@
       <div class="mash" id="mash">
         <div class="banner_background">
           <div class="show">
-            <!-- <div class="box pageWidth">
-                    <div class="item item1">
-                        <div class="item1_flow">
-                            <span id="num_one">0</span>+
-                        </div>
-                        <div class="item1_title">
-                            Successul Projects
-                        </div>
-                    </div>
-                    <div class="item item2">
-                        <div class="item2_flow"></div>
-                        <div class="item2_title"></div>
-                    </div>
-                    <div class="item item3">
-                        <div class="item3_flow"></div>
-                        <div class="item3_title"></div>
-                    </div>
-                    <div class="item item4">
-                        <div class="item4_flow"></div>
-                        <div class="item4_title"></div>
-                    </div>
-                </div> -->
           </div>
         </div>
       </div>
@@ -573,8 +544,8 @@
           }
 
           .right_detail {
-            font-size: 13px;
-            line-height: 20px;
+            font-size: 20px;
+            line-height: 40px;
             margin-bottom: 30px;
             letter-spacing: 0.4px;
           }
@@ -586,7 +557,7 @@
             .attribute {
               width: 200px;
               line-height: 50px;
-              font-size: 20px;
+              font-size: 15px;
             }
 
             .value {
