@@ -67,7 +67,7 @@
                 <span style="color:#6f64e7">typescript</span>
                 构建<br>
                 我是一名本科学生，目前以前端为主，后端为辅<br>
-                本站用于记录学习笔记、技术、以及生活的分享<br>
+                本站用于记录学习过程的笔记，以及技术方面的分享<br>
                 可通过下面联系方式与我交流，微信同步
               </p>
               <div class="information">
@@ -93,7 +93,7 @@
         </div>
       </div>
       <!-- 第三部分 我的技能 -->
-      <div class="myStill" id="SKILL">
+      <div class="mySkill" id="SKILL">
         <div class="box pageWidth">
           <div class="title">My <span>Skill</span></div>
           <div class="introduce">
@@ -101,7 +101,7 @@
             I learned a lot of techniques there
           </div>
           <div class="row"></div>
-          <div class="myStill_main">
+          <div class="mySkill_main">
             <div class="item">
               <div class="item_icon">
                 <img src="@/assets/images/htmlcss.png" alt=""/>
@@ -593,7 +593,7 @@
       .banner_background {
         width: 100%;
         height: 100%;
-        //background: url(@/assets/images/wanju1.jpg) no-repeat;
+        background: url(@/assets/images/wanju1.jpg) no-repeat;
         background-attachment: fixed;
         background-size: 100% 100%;
 
@@ -601,36 +601,12 @@
           width: 100%;
           height: 250px;
           background-color: rgba(0, 0, 0, 0.4);
-          // .box {
-          //     display: flex;
-          //     justify-content: space-between;
-          //     align-items: center;
-          //     .item {
-          //         // background-color: pink;
-          //         width: 280px;
-          //         height: 250px;
-          //         display: flex;
-          //         flex-direction: column;
-          //         align-items: center;
-          //         justify-content: center;
-          //         .item1_flow {
-          //             color: #fff;
-          //             font-size: 30px;
-          //             #num_one {
-          //                 transition: all 10s;
-          //             }
-          //         }
-          //         .item1_title {
-          //             color: #fff;
-          //         }
-          //     }
-          // }
         }
       }
     }
 
     // 第三部分 技能
-    .myStill {
+    .mySkill {
       // margin-top: 100px;
       padding-top: 100px;
       padding-bottom: 50px;
@@ -660,7 +636,7 @@
           margin: 40px auto;
         }
 
-        .myStill_main {
+        .mySkill_main {
           margin-top: -40px;
           display: flex;
           justify-content: space-between;
@@ -706,11 +682,13 @@
             }
 
             .item_detail {
+              overflow: hidden;
               margin-top: 10px;
               display: flex;
               flex-direction: column;
               align-items: center;
               text-align: center;
+              font-size: 15px;
               line-height: 30px;
             }
           }
@@ -826,7 +804,7 @@
       .banner_background {
         width: 100%;
         height: 100%;
-        //background: url(@/assets/images/basketball.jpg) no-repeat;
+        background: url(@/assets/images/basketball.jpg) no-repeat;
         background-attachment: fixed;
         background-size: cover;
 
