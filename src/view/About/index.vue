@@ -7,12 +7,6 @@
           <div class="swiper-slide">
             <img src="@/assets/images/background.webp" alt=""/>
           </div>
-          <!--          <div class="swiper-slide">-->
-          <!--            <img src="@/assets/images/background_two.webp" alt=""/>-->
-          <!--          </div>-->
-          <!--          <div class="swiper-slide">-->
-          <!--            <img src="@/assets/images/background_three.webp" alt=""/>-->
-          <!--          </div>-->
         </div>
       </div>
       <div class="mash"></div>
@@ -22,7 +16,7 @@
             <img src="@/assets/images/UX.png" alt=""/>
           </div>
           <div class="right">
-            <div class="nav_item"><a href="#HOME">HOME</a></div>
+            <div class="nav_item"><a href="./index.html">HOME</a></div>
             <div class="nav_item"><a href="#ABOUT">ABOUT</a></div>
             <div class="nav_item"><a href="#SKILL">SKILL</a></div>
             <div class="nav_item"><a href="#LIFE">LIFE</a></div>
@@ -363,7 +357,53 @@
 </template>
 
 <script setup lang="ts">
+// 我的技能数据
+type Skill = {
+  imgPath: string
+  title: string
+  shortDescription: string
+  detailDescription: string
+}
 
+const Skill: Skill[] = [
+  {
+    imgPath: '@/assets/images/htmlcss.png',
+    title: 'HTML&CSS',
+    shortDescription: 'Hypertext markup language',
+    detailDescription: '超文本标记语言,通过预定义好的标签实现网页开发,是一种标记语言.'
+  },
+  {
+    imgPath: '@/assets/images/htmlcss.png',
+    title: 'HTML&CSS',
+    shortDescription: 'Hypertext markup language',
+    detailDescription: '超文本标记语言,通过预定义好的标签实现网页开发,是一种标记语言.'
+  },
+  {
+    imgPath: '@/assets/images/htmlcss.png',
+    title: 'HTML&CSS',
+    shortDescription: 'Hypertext markup language',
+    detailDescription: '超文本标记语言,通过预定义好的标签实现网页开发,是一种标记语言.'
+  },
+  {
+    imgPath: '@/assets/images/htmlcss.png',
+    title: 'HTML&CSS',
+    shortDescription: 'Hypertext markup language',
+    detailDescription: '超文本标记语言,通过预定义好的标签实现网页开发,是一种标记语言.'
+  },
+  {
+    imgPath: '@/assets/images/htmlcss.png',
+    title: 'HTML&CSS',
+    shortDescription: 'Hypertext markup language',
+    detailDescription: '超文本标记语言,通过预定义好的标签实现网页开发,是一种标记语言.'
+  },
+  {
+    imgPath: '@/assets/images/htmlcss.png',
+    title: 'HTML&CSS',
+    shortDescription: 'Hypertext markup language',
+    detailDescription: '超文本标记语言,通过预定义好的标签实现网页开发,是一种标记语言.'
+  }
+
+]
 </script>
 
 <style lang="scss" scoped>
@@ -593,8 +633,8 @@
       .banner_background {
         width: 100%;
         height: 100%;
-        background: url(@/assets/images/wanju1.jpg) no-repeat;
-        background-attachment: fixed;
+        background: url(@/assets/images/wanju1.jpg) no-repeat fixed;
+        //background-attachment: ;
         background-size: 100% 100%;
 
         .show {
@@ -804,8 +844,8 @@
       .banner_background {
         width: 100%;
         height: 100%;
-        background: url(@/assets/images/basketball.jpg) no-repeat;
-        background-attachment: fixed;
+        background: url(@/assets/images/basketball.jpg) no-repeat fixed;
+        //background-attachment: fixed;
         background-size: cover;
 
         .show {
@@ -940,7 +980,6 @@
 
     // 第七部分 联系我
     .contack {
-      padding-bottom: 50px;
       padding: 100px 0 10px;
       width: 100%;
       color: #fff;
