@@ -1,40 +1,7 @@
 <template>
   <div class="about-container">
     <!-- 头部 -->
-    <header class="header" id="HOME">
-      <div class="swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img src="@/assets/images/background.webp" alt=""/>
-          </div>
-        </div>
-      </div>
-      <div class="mash"></div>
-      <div class="box pageWidth">
-        <div class="header_top">
-          <div class="left">
-            <img src="@/assets/images/UX.png" alt=""/>
-          </div>
-          <div class="right">
-            <div class="nav_item"><a href="./index.html">HOME</a></div>
-            <div class="nav_item"><a href="#ABOUT">ABOUT</a></div>
-            <div class="nav_item"><a href="#SKILL">SKILL</a></div>
-            <div class="nav_item"><a href="#LIFE">LIFE</a></div>
-            <div class="nav_item">
-              <a href="#FAVORITE">FAVORITE</a>
-            </div>
-            <div class="nav_item">
-              <a href="#CONTACT">CONTACT</a>
-            </div>
-          </div>
-        </div>
-        <div class="header_main">
-          <p class="one" ref="showNav" id="showNav">LIGHY CAM NE PHOTOGTAPHED</p>
-          <p class="two"><span>I Believe </span>You Can Do It</p>
-          <img class="dong" src="@/assets/images/shuxian_dong.webp" alt=""/>
-        </div>
-      </div>
-    </header>
+    <Header></Header>
     <!-- 主体 -->
     <main class="main">
       <!-- 主题第一部分 个人简介 -->
@@ -258,36 +225,15 @@
         </div>
       </div>
     </main>
-    <!-- 悬浮的导航栏 -->
-    <div class="nav_main">
-      <div class="box pageWidth">
-        <div class="left">
-          <img src="@/assets/images/UX.png" alt=""/>
-        </div>
-        <div class="right">
-          <div class="nav"><a href="./index.html">HOME</a></div>
-          <div class="nav"><a href="#ABOUT">ABOUT</a></div>
-          <div class="nav"><a href="#SKILL">SKILL</a></div>
-          <div class="nav"><a href="#LIFE">LIFE</a></div>
-          <div class="nav">
-            <a href="#FAVORITE">FAVORITE</a>
-          </div>
-          <div class="nav"><a href="#CONTACT">CONTACT</a></div>
-        </div>
-      </div>
-    </div>
-    <!-- 悬浮返回顶部按钮 -->
-    <div class="toTop">
-      <img ref="toTop_img" id="toTop_img" src="@/assets/images/top.png" alt=""/>
-    </div>
+    <ToTopAndNav></ToTopAndNav>
   </div>
 </template>
 
 <script setup lang="ts">
-import {onMounted, ref} from "vue"
-
-
-// 定义我的技能模块数据类型
+import {onMounted} from "vue"
+import Header from '@/view/components/Header.vue'
+import ToTopAndNav from '@/view/components/ToTopAndNav.vue'
+// 定义「我的技能」模块数据类型
 type SkillType = {
   imgPath: string
   title: string
@@ -333,16 +279,12 @@ const skill: SkillType[] = [
   }
 
 ]
-const showNav = ref<HTMLElement | null>(null)
-const toTop_img = ref<HTMLImageElement | null>(null)
 
 // 整合document页面滑动功能（sportCar淡出效果、nav与toTop相关功能）
 const documentScroll = () => {
   document.addEventListener('scroll', () => {
     // 调用sportsCar淡出
     carFadeOut()
-    // 调用悬浮导航栏与返回顶部按钮
-    navAndToTop()
   })
 }
 // sportCar淡出效果
@@ -358,70 +300,6 @@ const carFadeOut = () => {
     })
   }
 }
-// nav与toTop相关功能
-const navAndToTop = () => {
-  // 调用toTop功能整合
-  toTopEvent()
-  // 调用显示隐藏悬浮导航栏与返回顶部按钮功能整合
-  showAndHideNavToTop()
-
-  // toTop事件整合
-  function toTopEvent() {
-    // 获取悬浮返回头部按钮相关元素
-    const toTop = <HTMLElement>document.querySelector('.toTop')
-    const toTop_img = <HTMLImageElement>document.querySelector('#toTop_img')
-    // 鼠标悬浮toTop按钮变化
-    toTop.addEventListener('mouseover', () => {
-      toTop.style.backgroundColor = '#ffffff'
-      toTop_img.src = '/src/assets/images/top2.png'
-    })
-
-    // 鼠标离开toTop按钮变化
-    toTop.addEventListener('mouseout', () => {
-      toTop.style.backgroundColor = '#6f64e7'
-      // toTop_img.setAttribute('src', '@/assets/images/top.png')
-      toTop_img.src = '/src/assets/images/top.png'
-    })
-
-    // 鼠标点击toTop返回顶部
-    toTop.addEventListener('click', () => {
-      document.documentElement.scrollTop = document.body.scrollTop = 0
-    })
-  }
-
-  // 显示隐藏导航栏与返回顶部按钮功能整合
-  function showAndHideNavToTop() {
-    const showNav = <HTMLElement>document.querySelector('#showNav')
-    // 悬浮导航栏与返回顶部按钮功能
-    const toTop = <HTMLElement>document.querySelector('.toTop')
-    // 获取悬浮导航栏相关元素
-    const nav_main = <HTMLElement>document.querySelector('.nav_main')
-    const navTop = showNav.offsetTop
-    if (window.scrollY >= navTop) {
-      navShow(nav_main)
-      // 显示返回顶部按钮
-      toTop.style.opacity = '1'
-    } else {
-      navHidden(nav_main)
-      // 隐藏返回顶部按钮
-      toTop.style.opacity = '0'
-    }
-  }
-
-  // 悬浮导航栏显示
-  function navShow(nav_main: HTMLElement) {
-    nav_main.style.top = '0'
-    nav_main.style.opacity = '1'
-    nav_main.style.visibility = 'visible'
-  }
-
-  // 悬浮导航栏隐藏
-  function navHidden(nav_main: HTMLElement) {
-    nav_main.style.top = 10 + 'px'
-    nav_main.style.opacity = '0'
-    nav_main.style.visibility = 'hidden'
-  }
-}
 
 onMounted(() => {
   // 调用document页面滑动
@@ -431,20 +309,16 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .about-container {
-  //width: 100vw;
-  //background: radial-gradient(#313131, #0a0a0a);
-
-  .pageWidth {
-    width: 1200px;
-    margin: 0 auto;
-  }
-
   .header {
     position: relative;
     width: 100%;
     height: 800px;
     // margin-bottom: 166px;
     box-sizing: border-box;
+
+    .nav-font {
+      font-family: Comic Sans MS, Helvetica Neue, Microsoft Yahei, -apple-system, sans-serif !important;
+    }
 
     .box {
       .header_top {
@@ -1095,82 +969,5 @@ onMounted(() => {
       }
     }
   }
-
-  // 悬浮的导航栏
-  .nav_main {
-    width: 100%;
-    position: fixed;
-    top: 10px;
-    left: 0;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s;
-    background-color: #1d293e;
-
-    .box {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      word-spacing: normal;
-      color: rgb(141, 144, 149);
-      font-family: Helvetica, Arial, Verdana, sans-serif;
-      font-style: normal;
-      font-weight: normal;
-
-      .left {
-        img {
-          width: 60px;
-          height: 60px;
-        }
-      }
-
-      .right {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        a {
-          color: #fff;
-        }
-
-        .nav {
-          margin-left: 40px;
-          height: 50px;
-          line-height: 50px;
-          color: #fff;
-          box-sizing: border-box;
-          cursor: pointer;
-        }
-
-        .nav:hover {
-          border-bottom: 2px solid #fff;
-        }
-      }
-    }
-  }
-
-  // 返回顶部按钮
-  .toTop {
-    position: fixed;
-    bottom: 100px;
-    right: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 46px;
-    height: 46px;
-    border-radius: 23px;
-    background-color: #6f64e7;
-    cursor: pointer;
-    opacity: 0;
-    transition: all 0.5s;
-
-    #toTop_img {
-      width: 20px;
-      height: 20px;
-      transition: all 0.5s;
-    }
-  }
-
 }
 </style>
