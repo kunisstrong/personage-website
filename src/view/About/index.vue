@@ -280,30 +280,26 @@ const skill: SkillType[] = [
 
 ]
 
-// 整合document页面滑动功能（sportCar淡出效果、nav与toTop相关功能）
-const documentScroll = () => {
-  document.addEventListener('scroll', () => {
-    // 调用sportsCar淡出
-    carFadeOut()
-  })
-}
 // sportCar淡出效果
 const carFadeOut = () => {
   // 获取sportsCar相关元素
   const myFavorite_item = document.querySelectorAll('.main_item')
   const showCar = document.querySelector('#show') as HTMLElement
-  // sportsCar淡出效果
-  let itemTop = showCar.offsetTop
-  if (window.scrollY + window.innerHeight >= itemTop) {
-    myFavorite_item.forEach((item) => {
-      item.classList.add('fade')
-    })
-  }
+  document.addEventListener('scroll', () => {
+    // sportsCar淡出效果
+    let itemTop = showCar.offsetTop
+    if (window.scrollY + window.innerHeight >= itemTop) {
+      myFavorite_item.forEach((item) => {
+        item.classList.add('fade')
+      })
+    }
+  })
+
 }
 
 onMounted(() => {
-  // 调用document页面滑动
-  documentScroll()
+  // sportCar滑出效果
+  carFadeOut()
 })
 </script>
 
