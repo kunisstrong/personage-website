@@ -9,26 +9,22 @@
         </header>
         <ul>
           <li>
-            <a href="https://juejin.cn/user/3307750804423832/columns" aria-label="Blog" target="_blank">
-              <i class="icon icon-bokeyuan"></i>
+            <a @click="toBlog" aria-label="Blog" target="_blank">
               <span data-translate="Blog">Blog</span>
             </a>
           </li>
           <li>
             <a @click="toAbout" aria-label="About" target="_blank">
-              <i class="icon icon-xiaolian"></i>
               <span data-translate="About">About</span>
             </a>
           </li>
           <li>
             <a aria-label="Email" target="_blank">
-              <i class="icon icon-email"></i>
               <span data-translate="Email">Email</span>
             </a>
           </li>
           <li>
             <a aria-label="Github" target="_blank">
-              <i class="icon icon-github"></i>
               <span data-translate="Github">Github</span>
             </a>
           </li>

@@ -7,14 +7,12 @@
           <img src="@/assets/images/UX.png" alt=""/>
         </div>
         <div class="right">
-          <div class="nav"><a class="nav-font" href="./index.html">HOME</a></div>
           <div class="nav"><a class="nav-font" href="#ABOUT">ABOUT</a></div>
           <div class="nav"><a class="nav-font" href="#SKILL">SKILL</a></div>
           <div class="nav"><a class="nav-font" href="#LIFE">LIFE</a></div>
-          <div class="nav">
-            <a class="nav-font" href="#FAVORITE">FAVORITE</a>
-          </div>
+          <div class="nav"><a class="nav-font" href="#FAVORITE">FAVORITE</a></div>
           <div class="nav"><a class="nav-font" href="#CONTACT">CONTACT</a></div>
+          <div class="nav"><a class="nav-font" href="./index.html">HOME</a></div>
         </div>
       </div>
     </div>
@@ -26,7 +24,6 @@
 </template>
 
 <script setup lang="ts">
-// 整合document页面滑动功能（「nav与toTop」相关功能）
 import {onMounted} from "vue";
 
 const documentScroll = () => {
@@ -118,6 +115,7 @@ onMounted(() => {
   visibility: hidden;
   transition: all 0.3s;
   background-color: #1d293e;
+  z-index: 1000000;
 
   .box {
     display: flex;

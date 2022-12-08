@@ -73,3 +73,12 @@ a {
     width: 1200px;
     margin: 0 auto;
 }
+
+.blog-page-width {
+    width: 60vw;
+    margin: auto;
+}
+
+.nav-font {
+    font-family: Comic Sans MS, Helvetica Neue, Microsoft Yahei, -apple-system, sans-serif !important;
+}

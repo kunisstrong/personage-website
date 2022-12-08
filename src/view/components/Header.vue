@@ -14,7 +14,6 @@
           <img src="@/assets/images/UX.png" alt=""/>
         </div>
         <div class="right">
-          <div class="nav_item"><a class="nav-font" href="./index.html"> HOME</a></div>
           <div class="nav_item"><a class="nav-font" href="#ABOUT">ABOUT</a></div>
           <div class="nav_item"><a class="nav-font" href="#SKILL">SKILL</a></div>
           <div class="nav_item"><a class="nav-font" href="#LIFE">LIFE</a></div>
@@ -24,6 +23,7 @@
           <div class="nav_item">
             <a class="nav-font" href="#CONTACT">CONTACT</a>
           </div>
+          <div class="nav_item"><a class="nav-font" href="./index.html"> HOME</a></div>
         </div>
       </div>
       <div class="header_main">
@@ -40,16 +40,13 @@
 </script>
 
 <style lang="scss" scoped>
-.nav-font {
-  font-family: Comic Sans MS, Helvetica Neue, Microsoft Yahei, -apple-system, sans-serif !important;
-}
-
 .header {
   position: relative;
   width: 100%;
   height: 800px;
-  // margin-bottom: 166px;
   box-sizing: border-box;
+  overflow: hidden;
+  z-index: 1000000000000;
 
   .box {
     .header_top {
@@ -150,10 +147,4 @@
 
 
 }
-
-.pageWidth {
-  width: 1200px;
-  margin: 0 auto;
-}
-
 </style>

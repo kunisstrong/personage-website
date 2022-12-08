@@ -1,7 +1,8 @@
 <template>
   <div class="about-container">
     <!-- 头部 -->
-    <Header></Header>
+    <Header/>
+    <ToTopAndNav/>
     <!-- 主体 -->
     <main class="main">
       <!-- 主题第一部分 个人简介 -->
@@ -202,7 +203,7 @@
         </div>
       </div>
       <!-- 第七部分 联系我 -->
-      <div class="contack">
+      <div class="contact">
         <div class="box pageWidth">
           <div class="title" id="CONTACT">
             CONTACT <span>US</span>
@@ -213,19 +214,18 @@
             industry. Lorem Ipsum standard dummy text.
           </div>
           <div class="row"></div>
-          <div class="contack_main">
+          <div class="contact_main">
             <form class="main_one">
               <input type="text" name="name" placeholder="Name"/>
               <input type="text" name="email" placeholder="Email"/>
               <input type="text" name="subject" placeholder="Subject"/>
               <textarea name="message" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-              <input class="contack_submit" type="submit" value="Send Message"/>
+              <input class="contact_submit" type="submit" value="Send Message"/>
             </form>
           </div>
         </div>
       </div>
     </main>
-    <ToTopAndNav></ToTopAndNav>
   </div>
 </template>
 
@@ -233,6 +233,7 @@
 import {onMounted} from "vue"
 import Header from '@/view/components/Header.vue'
 import ToTopAndNav from '@/view/components/ToTopAndNav.vue'
+
 // 定义「我的技能」模块数据类型
 type SkillType = {
   imgPath: string
@@ -871,7 +872,7 @@ onMounted(() => {
     }
 
     // 第七部分 联系我
-    .contack {
+    .contact {
       padding: 100px 0 10px;
       width: 100%;
       color: #fff;
@@ -899,7 +900,7 @@ onMounted(() => {
           margin: 40px auto;
         }
 
-        .contack_main {
+        .contact_main {
           .main_one {
             display: flex;
             justify-content: space-between;
@@ -943,7 +944,7 @@ onMounted(() => {
               color: #fff;
             }
 
-            .contack_submit {
+            .contact_submit {
               width: 180px;
               height: 60px;
               background-color: #6f64e7;
@@ -957,7 +958,7 @@ onMounted(() => {
               transition: all 0.5s ease-in-out;
             }
 
-            .contack_submit:hover {
+            .contact_submit:hover {
               background-color: #000;
             }
           }
