@@ -284,17 +284,15 @@
 </template>
 
 <script setup lang="ts">
-
-// 定义我的技能模块数据类型
 import {onMounted, ref} from "vue";
 
+// 定义我的技能模块数据类型
 type SkillType = {
   imgPath: string
   title: string
   shortDescription: string
   detailDescription: string
 }
-
 const skill: SkillType[] = [
   {
     imgPath: '/src/assets/images/htmlcss.png',
@@ -335,12 +333,20 @@ const skill: SkillType[] = [
 
 ]
 
+// 整合document页面滑动功能（sportCar淡出效果、nav与toTop相关功能）
+const documentScroll = () => {
+  document.addEventListener('scroll', () => {
+    // 调用sportsCar淡出
+    carFadeOut()
+    // 调用悬浮导航栏与返回顶部按钮
+    navAndToTop()
+  })
+}
 // sportCar淡出效果
 const carFadeOut = () => {
   // 获取sportsCar相关元素
   const myFavorite_item = document.querySelectorAll('.main_item')
-  const showCar = document.querySelector('#show') as Element
-
+  const showCar = document.querySelector('#show') as HTMLElement
   // sportsCar淡出效果
   let itemTop = showCar.offsetTop
   if (window.scrollY + window.innerHeight >= itemTop) {
@@ -349,56 +355,75 @@ const carFadeOut = () => {
     })
   }
 }
+// nav与toTop相关功能
+const navAndToTop = () => {
+  // 调用toTop功能整合
+  toTopEvent()
+  // 调用显示隐藏悬浮导航栏与返回顶部按钮功能整合
+  showAndHideNavToTop()
 
-// 悬浮导航栏与返回顶部按钮功能
-const toTop_img = ref(null)
-const showNav = ref(null)
-const navAndBack = () => {
-  // 获取悬浮导航栏相关元素
-  const nav_main = document.querySelector('.nav_main') as Element
-  // 获取悬浮返回头部按钮相关元素
-  const toTop = document.querySelector('.toTop') as Element
-  // 鼠标悬浮toTop按钮变化
-  toTop.addEventListener('mouseover', () => {
-    toTop.style.backgroundColor = '#ffffff'
-    toTop_img.value.src = '/src/assets/images/top2.png'
-  })
-  // 鼠标离开toTop按钮变化
-  toTop.addEventListener('mouseout', () => {
-    toTop.style.backgroundColor = '#6f64e7'
-    // toTOp_img.setAttribute('src', '@/assets/images/top.png')
-    toTop_img.value.src = '/src/assets/images/top.png'
-  })
-  toTop.addEventListener('click', () => {
-    document.documentElement.scrollTop = document.body.scrollTop = 0
-  })
-  // 悬浮导航栏与返回顶部按钮
-  let navTop = showNav.value.offsetTop
-  if (window.scrollY >= navTop) {
-    nav_main.style.top = 0
-    nav_main.style.opacity = 1
+  // toTop事件整合
+  function toTopEvent() {
+    // 获取悬浮返回头部按钮相关元素
+    const toTop_img = ref<HTMLImageElement | null>(null)
+    const toTop = <HTMLElement>document.querySelector('.toTop')
+
+    // 鼠标悬浮toTop按钮变化
+    toTop.addEventListener('mouseover', () => {
+      toTop.style.backgroundColor = '#ffffff'
+      ;(<HTMLImageElement>toTop_img.value).src = '/src/assets/images/top2.png'
+    })
+
+    // 鼠标离开toTop按钮变化
+    toTop.addEventListener('mouseout', () => {
+      toTop.style.backgroundColor = '#6f64e7'
+      // toTOp_img.setAttribute('src', '@/assets/images/top.png')
+      ;(<HTMLImageElement>toTop_img.value).src = '/src/assets/images/top.png'
+    })
+
+    // 鼠标点击toTop返回顶部
+    toTop.addEventListener('click', () => {
+      document.documentElement.scrollTop = document.body.scrollTop = 0
+    })
+  }
+
+  // 显示隐藏导航栏与返回顶部按钮功能整合
+  function showAndHideNavToTop() {
+    // 悬浮导航栏与返回顶部按钮功能
+    const showNav = ref<HTMLElement | null>()
+    const toTop = <HTMLElement>document.querySelector('.toTop')
+    // 获取悬浮导航栏相关元素
+    const nav_main = <HTMLElement>document.querySelector('.nav_main')
+    let navTop = (<HTMLElement>showNav.value).offsetTop
+    if (window.scrollY >= navTop) {
+      navShow(nav_main)
+      // 显示返回顶部按钮
+      toTop.style.opacity = '1'
+    } else {
+      navHidden(nav_main)
+      // 隐藏返回顶部按钮
+      toTop.style.opacity = '0'
+    }
+  }
+
+  // 悬浮导航栏显示
+  function navShow(nav_main: HTMLElement) {
+    nav_main.style.top = '0'
+    nav_main.style.opacity = '1'
     nav_main.style.visibility = 'visible'
-    toTop.style.opacity = 1
-  } else {
+  }
+
+  // 悬浮导航栏隐藏
+  function navHidden(nav_main: HTMLElement) {
     nav_main.style.top = 10 + 'px'
-    nav_main.style.opacity = 0
+    nav_main.style.opacity = '0'
     nav_main.style.visibility = 'hidden'
-    toTop.style.opacity = 0
   }
 }
 
-// 整合document页面滑动功能
-const documentScroll = () => {
-  document.addEventListener('scroll', () => {
-    // 调用sportsCar淡出
-    carFadeOut()
-    // 调用悬浮导航栏与返回顶部按钮
-    navAndBack()
-  })
-}
 onMounted(() => {
+  // 调用document页面滑动
   documentScroll()
-
 })
 </script>
 
@@ -472,7 +497,7 @@ onMounted(() => {
         }
 
         .two {
-          margin-top: 50px;
+          margin-top: 80px;
           color: #fff;
           font-size: 40px;
 
