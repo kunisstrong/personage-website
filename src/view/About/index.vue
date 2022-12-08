@@ -259,13 +259,13 @@
       </div>
     </main>
     <!-- 悬浮的导航栏 -->
-    <div class="nav_main" ref="nav_main">
+    <div class="nav_main">
       <div class="box pageWidth">
         <div class="left">
           <img src="@/assets/images/UX.png" alt=""/>
         </div>
         <div class="right">
-          <div class="nav"><a href="#HOME">HOME</a></div>
+          <div class="nav"><a href="./index.html">HOME</a></div>
           <div class="nav"><a href="#ABOUT">ABOUT</a></div>
           <div class="nav"><a href="#SKILL">SKILL</a></div>
           <div class="nav"><a href="#LIFE">LIFE</a></div>
@@ -278,13 +278,14 @@
     </div>
     <!-- 悬浮返回顶部按钮 -->
     <div class="toTop">
-      <img ref="toTop_img" id="toTOp_img" src="@/assets/images/top.png" alt=""/>
+      <img ref="toTop_img" id="toTop_img" src="@/assets/images/top.png" alt=""/>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import {onMounted, ref} from "vue";
+import {onMounted, ref} from "vue"
+
 
 // 定义我的技能模块数据类型
 type SkillType = {
@@ -332,6 +333,8 @@ const skill: SkillType[] = [
   }
 
 ]
+const showNav = ref<HTMLElement | null>(null)
+const toTop_img = ref<HTMLImageElement | null>(null)
 
 // 整合document页面滑动功能（sportCar淡出效果、nav与toTop相关功能）
 const documentScroll = () => {
@@ -365,20 +368,19 @@ const navAndToTop = () => {
   // toTop事件整合
   function toTopEvent() {
     // 获取悬浮返回头部按钮相关元素
-    const toTop_img = ref<HTMLImageElement | null>(null)
     const toTop = <HTMLElement>document.querySelector('.toTop')
-
+    const toTop_img = <HTMLImageElement>document.querySelector('#toTop_img')
     // 鼠标悬浮toTop按钮变化
     toTop.addEventListener('mouseover', () => {
       toTop.style.backgroundColor = '#ffffff'
-      ;(<HTMLImageElement>toTop_img.value).src = '/src/assets/images/top2.png'
+      toTop_img.src = '/src/assets/images/top2.png'
     })
 
     // 鼠标离开toTop按钮变化
     toTop.addEventListener('mouseout', () => {
       toTop.style.backgroundColor = '#6f64e7'
-      // toTOp_img.setAttribute('src', '@/assets/images/top.png')
-      ;(<HTMLImageElement>toTop_img.value).src = '/src/assets/images/top.png'
+      // toTop_img.setAttribute('src', '@/assets/images/top.png')
+      toTop_img.src = '/src/assets/images/top.png'
     })
 
     // 鼠标点击toTop返回顶部
@@ -389,12 +391,12 @@ const navAndToTop = () => {
 
   // 显示隐藏导航栏与返回顶部按钮功能整合
   function showAndHideNavToTop() {
+    const showNav = <HTMLElement>document.querySelector('#showNav')
     // 悬浮导航栏与返回顶部按钮功能
-    const showNav = ref<HTMLElement | null>()
     const toTop = <HTMLElement>document.querySelector('.toTop')
     // 获取悬浮导航栏相关元素
     const nav_main = <HTMLElement>document.querySelector('.nav_main')
-    let navTop = (<HTMLElement>showNav.value).offsetTop
+    const navTop = showNav.offsetTop
     if (window.scrollY >= navTop) {
       navShow(nav_main)
       // 显示返回顶部按钮
@@ -1163,7 +1165,7 @@ onMounted(() => {
     opacity: 0;
     transition: all 0.5s;
 
-    #toTOp_img {
+    #toTop_img {
       width: 20px;
       height: 20px;
       transition: all 0.5s;
