@@ -89,7 +89,7 @@ const toTags = () => {
  * 点击跳转About
  */
 const toAbout = () => {
-  router.push('/about')
+  router.push('/blogAbout')
 }
 
 /**
@@ -101,7 +101,9 @@ const documentScroll = () => {
     navAndToTop()
   })
 }
-// nav与toTop相关功能
+/**
+ * nav与toTop相关功能
+ */
 const navAndToTop = () => {
   // 调用toTop功能整合
   toTopEvent()
@@ -167,7 +169,8 @@ const navAndToTop = () => {
 }
 
 onMounted(() => {
-  // 调用整合document页面滑动功能（「nav与toTop」相关功能）
+
+  //「nav与toTop」相关功能
   documentScroll()
 })
 </script>
