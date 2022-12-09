@@ -738,7 +738,6 @@ onMounted(() => {
         width: 100%;
         height: 100%;
         background: url(@/assets/images/basketball.jpg) no-repeat fixed;
-        //background-attachment: fixed;
         background-size: cover;
 
         .show {

@@ -15,9 +15,15 @@
       </div>
     </div>
     <div class="content">
-      <span>感谢关注我的网站，本站是使用 Hexo 框架 + Fluid 主题搭建。</span>
-      <span>我是一名本科学生，正在学习后端开发。</span>
-      <span>本网站用于记录学习过程的笔记，以及技术方面的分享。</span>
+      <span>
+        本站使用
+        <span style="color: #6f64e7">vue3</span>
+         +
+        <span style="color:#6f64e7">typescript</span>
+        构建
+      </span>
+      <span>我是一名本科学生，目前以前端为主，后端为辅</span>
+      <span>本站用于记录学习过程的笔记，以及技术方面的分享</span>
       <span>可以通过扫描微信二维码与我交流。</span>
     </div>
   </div>
