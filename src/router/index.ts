@@ -8,7 +8,7 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: '/blog',
         name: '博客平台',
-        redirect: 'allEssay',
+        redirect: 'blogAbout',
         component: () => import('@/view/Blog/index.vue'),
         children: [
             {
@@ -28,10 +28,9 @@ const routes: Array<RouteRecordRaw> = [
             },
             {
                 path: '/blogAbout',
-                name: 'about',
+                name: 'blogAbout',
                 component: () => import('@/view/Blog/BlogAbout.vue'),
             }
-
         ]
     },
     {
