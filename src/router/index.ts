@@ -8,14 +8,19 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: '/blog',
         name: '博客平台',
-        redirect: 'blogAbout',
+        redirect: 'categories',
         component: () => import('@/view/Blog/index.vue'),
         children: [
-            {
-                path: '/allEssay',
-                name: 'allEssay',
-                component: () => import('@/view/Blog/AllEssay.vue'),
-            },
+            // {
+            //     path: '/allEssay',
+            //     name: 'allEssay',
+            //     component: () => import('@/view/Blog/AllEssay.vue'),
+            // },
+            // {
+            //     path: '/detailEssay',
+            //     name: 'detailEssay',
+            //     component: () => import('@/view/Blog/DetailEssay.vue'),
+            // },
             {
                 path: '/categories',
                 name: 'categories',

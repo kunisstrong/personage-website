@@ -8,10 +8,10 @@
         </div>
         <div class="right">
           <div class="right">
-            <div @click="toAbout" class="nav_item nav-font">About</div>
-            <div @click="toAllEssay" class="nav_item nav-font">AllEssay</div>
+            <!--            <div @click="toAllEssay" class="nav_item nav-font">AllEssay</div>-->
             <div @click="toCategories" class="nav_item nav-font">Categories</div>
             <div @click="toTags" class="nav_item nav-font">Tags</div>
+            <div @click="toAbout" class="nav_item nav-font">About</div>
             <div class="nav_item nav-font"><a style="color:#fff;" href="./index.html">Home</a></div>
           </div>
         </div>
@@ -37,10 +37,10 @@
             <img src="@/assets/images/UX.png" alt=""/>
           </div>
           <div class="right">
-            <div @click="toAbout" class="nav_item nav-font">About</div>
-            <div @click="toAllEssay" class="nav_item nav-font">AllEssay</div>
+            <!--            <div @click="toAllEssay" class="nav_item nav-font">AllEssay</div>-->
             <div @click="toCategories" class="nav_item nav-font">Categories</div>
             <div @click="toTags" class="nav_item nav-font">Tags</div>
+            <div @click="toAbout" class="nav_item nav-font">About</div>
             <div class="nav_item nav-font"><a style="color:#fff;" href="./index.html">Home</a></div>
           </div>
         </div>

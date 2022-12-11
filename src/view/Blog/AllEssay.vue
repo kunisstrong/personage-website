@@ -1,6 +1,6 @@
 <template>
   <div class="all-essay-container blog-page-width">
-    <div class="item" v-for="(item, index) in Essay" :key="index">
+    <div class="item" @click="toDetail" v-for="(item, index) in Essay" :key="index">
       <img class="img" :src="item.imgPath" alt="js">
       <div class="detail">
         <div class="detail-title cursor">
@@ -20,6 +20,15 @@
 </template>
 
 <script setup lang="ts">
+import {useRouter} from "vue-router"
+
+const router = useRouter()
+/**
+ * 跳转到文章详情
+ */
+const toDetail = () => {
+  router.push('/detailEssay')
+}
 /**
  * assay数据
  */
@@ -127,7 +136,6 @@ const Essay: EssayType[] = [
         color: #cac6c6;
       }
     }
-
   }
 }
 
