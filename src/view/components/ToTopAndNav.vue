@@ -12,7 +12,7 @@
           <div class="nav"><a class="nav-font" href="#LIFE">LIFE</a></div>
           <div class="nav"><a class="nav-font" href="#FAVORITE">FAVORITE</a></div>
           <div class="nav"><a class="nav-font" href="#CONTACT">CONTACT</a></div>
-          <div class="nav"><a class="nav-font" href="./index.html">HOME</a></div>
+          <div class="nav"><a class="nav-font" href="./nav.html">HOME</a></div>
         </div>
       </div>
     </div>

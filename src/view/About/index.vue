@@ -10,9 +10,8 @@
         <div class="box pageWidth">
           <div class="title">WHO <span>AM I?</span></div>
           <div class="introduce">
-            Lorem Ipsum is simply dummy text of the printing and
-            typesetting<br/>
-            industry. Lorem Ipsum standard dummy text.
+            你掌控生活，或者生活掌控你 <br>
+            You are in charge of life, or life is in charge of you
           </div>
           <div class="row"></div>
           <div class="me">
@@ -28,8 +27,8 @@
                 <span style="color: #6f64e7">vue3</span> +
                 <span style="color:#6f64e7">typescript</span>
                 构建<br>
-                我是一名本科学生，目前以前端为主，后端为辅<br>
-                本站用于记录学习过程的笔记，以及技术方面的分享<br>
+                本科在校生，目前主业前端，后端略懂一二，了解过nodejs、java体系，能够处理日常crud工作<br>
+                本模块用于记录日常以及有意义的时刻<br>
                 可通过下面联系方式与我交流，微信同步
               </p>
               <div class="information">
@@ -76,6 +75,7 @@
                 </p>
               </div>
             </div>
+
           </div>
         </div>
       </div>

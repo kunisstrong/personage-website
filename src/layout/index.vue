@@ -19,8 +19,8 @@
             </a>
           </li>
           <li>
-            <a aria-label="Email" target="_blank">
-              <span data-translate="Email">Email</span>
+            <a href="index.html" aria-label="Email" target="_blank">
+              <span data-translate="Email">Back</span>
             </a>
           </li>
           <li>

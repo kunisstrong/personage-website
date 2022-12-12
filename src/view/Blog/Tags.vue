@@ -10,11 +10,10 @@
 /**
  * 标签数组
  */
-const tagsArr: string[] = ['JavaScript', '前端', 'web3D', 'Java后端', '数据库', '计算机基础']
+const tagsArr: string[] = ['JavaScript', '前端开发', 'web3D', 'Java后端', '数据库', '计算机基础']
 </script>
 
 <style lang="scss" scoped>
-
 .tags-container {
   border-radius: 10px;
   background-color: #1d293e;

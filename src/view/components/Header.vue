@@ -23,7 +23,7 @@
           <div class="nav_item">
             <a class="nav-font" href="#CONTACT">CONTACT</a>
           </div>
-          <div class="nav_item"><a class="nav-font" href="./index.html"> HOME</a></div>
+          <div class="nav_item"><a class="nav-font" href="./nav.html">HOME</a></div>
         </div>
       </div>
       <div class="header_main">

@@ -8,10 +8,12 @@
         Kun Wang
       </div>
       <div class="title-sub" style="margin-top: 10px">
-        那年，我双手插兜，不知道什么叫做对手
+        You are in charge of life, or life is in charge of you
       </div>
       <div class="relation" style="margin-top: 10px; fill: white">
-        <svg-icon class="cursor" name="github" style="width: 30px; height: 30px"/>
+        <a href="https://github.com/kunisstrong" target="_blank">
+          <svg-icon class="cursor" name="github" style="width: 30px; height: 30px"/>
+        </a>
         <svg-icon class="cursor" name="wechat" style="width: 40px; height: 40px;margin-left: 10px"/>
       </div>
     </div>
@@ -23,7 +25,7 @@
         <span style="color:#6f64e7">typescript</span>
         构建
       </span>
-      <span>一名本科学生，目前以前端为主，后端略懂一二，了解过nodejs、java，能处理日常crud工作</span>
+      <span>本科在校生，目前主业前端，后端略懂一二，了解过nodejs、java，能处理日常crud工作</span>
       <span>本模块用于记录学习过程的笔记，以及技术方面的分享</span>
       <span>可以通过扫描微信二维码与我交流。</span>
     </div>

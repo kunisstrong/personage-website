@@ -12,7 +12,7 @@
             <div @click="toCategories" class="nav_item nav-font">Categories</div>
             <div @click="toTags" class="nav_item nav-font">Tags</div>
             <div @click="toAbout" class="nav_item nav-font">About</div>
-            <div class="nav_item nav-font"><a style="color:#fff;" href="./index.html">Home</a></div>
+            <div class="nav_item nav-font"><a style="color:#fff;" href="./nav.html">Home</a></div>
           </div>
         </div>
       </div>
@@ -41,7 +41,7 @@
             <div @click="toCategories" class="nav_item nav-font">Categories</div>
             <div @click="toTags" class="nav_item nav-font">Tags</div>
             <div @click="toAbout" class="nav_item nav-font">About</div>
-            <div class="nav_item nav-font"><a style="color:#fff;" href="./index.html">Home</a></div>
+            <div class="nav_item nav-font"><a style="color:#fff;" href="./nav.html">Home</a></div>
           </div>
         </div>
         <div class="header_main">
