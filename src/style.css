@@ -57,10 +57,10 @@ body {
     cursor: url(https://cdn.jsdelivr.net/gh/Tomotoes/images/blog/default.cur), auto !important
 }
 
-a, img {
-    /*鼠标悬浮样式*/
-    cursor: url(https://cdn.jsdelivr.net/gh/Tomotoes/images/blog/pointer.cur), auto !important
-}
+/*a, img {*/
+/*    !*鼠标悬浮样式*!*/
+/*    cursor: url(https://cdn.jsdelivr.net/gh/Tomotoes/images/blog/pointer.cur), auto !important*/
+/*}*/
 
 .cursor {
     cursor: url(https://cdn.jsdelivr.net/gh/Tomotoes/images/blog/pointer.cur), auto !important

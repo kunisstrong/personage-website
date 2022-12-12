@@ -6,7 +6,9 @@
         <svg-icon class="icon-change" v-if="item.iconName" :name="item.iconName" style="width: 19px; height: 19px;"/>
       </h3>
       <div v-if="item.isShow" class="sub-box">
-        <p class="cursor" v-for="(subItem, subIndex) in item.subCategories" :key='subIndex'>{{ subItem }}</p>
+        <template v-for="(subItem, subIndex) in item.subCategories" :key='subIndex'>
+          <p><a class="cursor" :href="subItem.url" target="_blank">{{ subItem.subTitle }}</a></p>
+        </template>
       </div>
     </div>
   </div>
@@ -21,7 +23,6 @@ import {reactive} from "vue"
 const showSubAndChangeIcon = (item: CategoriesType) => {
   item.isShow = !item.isShow
   item.iconName = item.iconName === 'down' ? 'right' : 'down'
-  console.log(icon.value)
 }
 
 /**
@@ -29,7 +30,7 @@ const showSubAndChangeIcon = (item: CategoriesType) => {
  */
 type CategoriesType = {
   title: string
-  subCategories: Array<string>
+  subCategories?: Array<object>
   isShow: boolean
   iconName: string
 }
@@ -37,37 +38,61 @@ type CategoriesType = {
 const Categories: CategoriesType[] = reactive([
   {
     title: 'JavaScript',
-    subCategories: ['闭包', '原型链'],
+    subCategories: [
+      {
+        subTitle: '原型链',
+        url: 'https://juejin.cn/post/7042181321338126373'
+      },
+      {
+        subTitle: 'Promise',
+        url: 'https://juejin.cn/post/7073067282846466062'
+      },
+    ],
     isShow: false,
-    iconName: 'right'
+    iconName: 'right',
   },
   {
     title: '前端开发',
-    subCategories: ['vue3', 'TypeScript'],
+    subCategories: [
+      {
+        subTitle: 'vue基础',
+        url: 'https://juejin.cn/column/7062550790266683405'
+      },
+    ],
     isShow: false,
     iconName: 'right'
   },
   {
     title: '数据库',
-    subCategories: ['mysql', 'redis', 'mongodb'],
     isShow: false,
     iconName: 'right'
   },
   {
     title: 'web3D',
-    subCategories: ['WebGL', 'Three.js'],
     isShow: false,
     iconName: 'right'
   },
   {
     title: 'Java后端',
-    subCategories: ['spring', 'SpringBoot', 'MyBatis'],
+    subCategories: [
+      {
+        subTitle: 'SpringBoot',
+        url: 'https://juejin.cn/post/7171419604147765278'
+      },
+      {
+        subTitle: 'Maven',
+        url: 'https://juejin.cn/post/7176080053724250172'
+      },
+    ],
     isShow: false,
     iconName: 'right'
   },
   {
     title: '计算机基础',
-    subCategories: ['编译原理', '操作系统', '计算机网络原理', '计算机图形学'],
+    subCategories: [{
+      subTitle: '前端要懂的网络基本原理',
+      url: 'https://juejin.cn/post/7135382416780656647'
+    }],
     isShow: false,
     iconName: 'right'
   }
