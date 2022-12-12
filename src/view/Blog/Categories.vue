@@ -58,12 +58,22 @@ const Categories: CategoriesType[] = reactive([
         subTitle: 'vue基础',
         url: 'https://juejin.cn/column/7062550790266683405'
       },
+      {
+        subTitle: 'css预处理器sass',
+        url: 'https://juejin.cn/post/7176088935548846140'
+      }
     ],
     isShow: false,
     iconName: 'right'
   },
   {
     title: '数据库',
+    subCategories: [
+      {
+        subTitle: '初识mysql',
+        url: 'https://juejin.cn/post/7176076262719356988'
+      }
+    ],
     isShow: false,
     iconName: 'right'
   },

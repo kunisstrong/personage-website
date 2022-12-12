@@ -8,10 +8,11 @@
         Kun Wang
       </div>
       <div class="title-sub" style="margin-top: 10px">
-        这里是副标语
+        那年，我双手插兜，不知道什么叫做对手
       </div>
-      <div class="relation" style="margin-top: 10px">
-        联系图标
+      <div class="relation" style="margin-top: 10px; fill: white">
+        <svg-icon class="cursor" name="github" style="width: 30px; height: 30px"/>
+        <svg-icon class="cursor" name="wechat" style="width: 40px; height: 40px;margin-left: 10px"/>
       </div>
     </div>
     <div class="content">
@@ -22,14 +23,15 @@
         <span style="color:#6f64e7">typescript</span>
         构建
       </span>
-      <span>我是一名本科学生，目前以前端为主，后端为辅</span>
-      <span>本站用于记录学习过程的笔记，以及技术方面的分享</span>
+      <span>一名本科学生，目前以前端为主，后端略懂一二，了解过nodejs、java，能处理日常crud工作</span>
+      <span>本模块用于记录学习过程的笔记，以及技术方面的分享</span>
       <span>可以通过扫描微信二维码与我交流。</span>
     </div>
   </div>
 </template>
 <script setup lang="ts">
 
+import SvgIcon from "@/components/SvgIcon/index.vue";
 </script>
 <style lang="scss" scoped>
 .about-container {
@@ -65,7 +67,7 @@
   .title {
     position: relative;
     top: -100px;
-    width: 30%;
+    width: 50%;
     height: 200px;
     overflow: hidden;
     display: flex;
@@ -75,6 +77,26 @@
 
     .title-sup {
       font-size: 40px;
+    }
+
+    .title-sub {
+      font-size: 20px;
+      color: #c0bdbd;
+    }
+
+    .relation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .cursor {
+        fill: #fff;
+        transition: all 0.2s;
+
+        &:hover {
+          fill: #6f64e7;
+        }
+      }
     }
   }
 
