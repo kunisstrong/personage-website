@@ -54,18 +54,17 @@
         </div>
       </div>
       <!-- 第三部分 我的技能 -->
-      <div class="mySkill" id="SKILL">
+      <div class="myHobby" id="SKILL">
         <div class="box pageWidth">
-          <div class="title">My <span>Skill</span></div>
+          <div class="title">My <span>Hobby</span></div>
           <div class="introduce">
-            众所周知,哔哩哔哩是一所大学<br/>
-            I learned a lot of techniques there
+            上榜的都是我的至亲至爱了<br/>
           </div>
           <div class="row"></div>
-          <div class="mySkill_main">
-            <div class="item" v-for="item in skill">
+          <div class="myHobby_main">
+            <div class="item cursor" v-for="(item,index) in myHobby" :key="index">
               <div class="item_icon">
-                <img :src="item.imgPath" alt=""/>
+                <img src="" alt=""/>
               </div>
               <div class="item_title">{{ item.title }}</div>
               <div class="item_detail">
@@ -75,6 +74,7 @@
                 </p>
               </div>
             </div>
+
 
           </div>
         </div>
@@ -234,51 +234,32 @@ import {onMounted} from "vue"
 import Header from '@/view/components/Header.vue'
 import ToTopAndNav from '@/view/components/ToTopAndNav.vue'
 
-// 定义「我的技能」模块数据类型
-type SkillType = {
+// 定义「我的爱好」模块数据类型
+type HobbyType = {
   imgPath: string
   title: string
   shortDescription: string
   detailDescription: string
 }
-const skill: SkillType[] = [
+const myHobby: HobbyType[] = [
   {
-    imgPath: '/src/assets/images/htmlcss.png',
-    title: 'HTML&CSS',
-    shortDescription: 'Hypertext markup language',
-    detailDescription: '超文本标记语言,通过预定义好的标签实现网页开发,是一种标记语言.'
+    imgPath: '',
+    title: 'BasketBall',
+    shortDescription: '「陪伴了我整个学生时代」',
+    detailDescription: '马上毕业了，再也不是那个不畏严寒夏暑打球的少年了'
   },
   {
-    imgPath: '/src/assets/images/js.png',
-    title: 'JavaScript',
-    shortDescription: '常作为开发Web页面的编程语言',
-    detailDescription: '是一种具有函数优先的轻量级，解释型或即时编译型的高级编程语言.'
+    imgPath: '',
+    title: 'Coding',
+    shortDescription: '「既是兴趣也是工作」',
+    detailDescription: '大三开始自学编程，非常享受不断进步的感觉，很nice'
   },
   {
-    imgPath: '/src/assets/images/less.png',
-    title: 'Less',
-    shortDescription: 'css 预编译器',
-    detailDescription: '可以扩展 css语言,添加功能,比如变量、混合、函数和许多其他的技术.'
+    imgPath: '',
+    title: 'LoL',
+    shortDescription: '「阿城TheShy」',
+    detailDescription: '大一时被室友带入坑，并一发不可收拾，这波室友粘大锅。网五 ID：从头酷到jiao，有时间一起玩'
   },
-  {
-    imgPath: '/src/assets/images/Vue.png',
-    title: 'Vue',
-    shortDescription: '渐进式 JavaScript 框架',
-    detailDescription: '声明式地将DOM 绑定至底层Vue实例的数据.'
-  },
-  {
-    imgPath: '/src/assets/images/node.svg',
-    title: 'Node.js',
-    shortDescription: 'JavaScirpt 运行环境',
-    detailDescription: ' 是一个开源和跨平台的 JavaScript 运行时环境,几乎是任何类型项目的流行工具.'
-  },
-  {
-    imgPath: '/src/assets/images/typescript.png',
-    title: 'TypeScript',
-    shortDescription: 'JavaScript类型的超集',
-    detailDescription: '为 JavaScript 带来了强大的类型系统和对ES2015的支持.'
-  }
-
 ]
 
 // sportCar淡出效果
@@ -539,8 +520,7 @@ onMounted(() => {
     }
 
     // 第三部分 技能
-    .mySkill {
-      // margin-top: 100px;
+    .myHobby {
       padding-top: 100px;
       padding-bottom: 50px;
       width: 100%;
@@ -569,7 +549,7 @@ onMounted(() => {
           margin: 40px auto;
         }
 
-        .mySkill_main {
+        .myHobby_main {
           margin-top: -40px;
           display: flex;
           justify-content: space-between;

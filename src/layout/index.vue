@@ -3,7 +3,7 @@
     <div id="card">
       <div class="card-inner fade">
         <header>
-          <img src="src/assets/images/avatar.jpg" style="width: 100px; height: 100px" alt="avatar">
+          <img src="src/assets/images/headPhoto.jpeg" style="width: 100px; height: 100px" alt="avatar">
           <h1 data-translate="name">Simon Ma</h1>
           <h2 id="signature" data-translate="signature">Code &amp; Input &amp; Output</h2>
         </header>
